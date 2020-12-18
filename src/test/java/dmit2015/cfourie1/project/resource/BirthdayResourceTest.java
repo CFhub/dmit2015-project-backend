@@ -88,10 +88,15 @@ class BirthdayResourceTest {
         Optional<Birthday> optionalBirthday = currentBirthdayResourceJaxRsClient.getOneByLocation(testDataResourceLocation);
         assertTrue(optionalBirthday.isPresent());
         Birthday existingBirthday = optionalBirthday.get();
-        boolean success = currentBirthdayResourceJaxRsClient.delete(existingBirthday.getId());
+        JwtResourceJaxRsClient jwtJaxRsClient = new JwtResourceJaxRsClient();
+        Optional<String> optionalToken = jwtJaxRsClient.login("user2015", "Password2015");
+        assertTrue(optionalToken.isPresent());
+        String token = optionalToken.get();
+
+        boolean success = currentBirthdayResourceJaxRsClient.delete(existingBirthday.getId(), token);
         assertTrue(success);
 
-        success = currentBirthdayResourceJaxRsClient.delete(existingBirthday.getId());
+        success = currentBirthdayResourceJaxRsClient.delete(existingBirthday.getId(), token);
         assertFalse(success);
     }
 }

@@ -90,13 +90,15 @@ public class BirthdayResourceJaxRsClient {
         return success;
     }
 
-    public boolean delete(Long id) {
+    public boolean delete(Long id, String bearerToken) {
+        final String bearerAuth = "Bearer " + bearerToken;
         boolean success = false;
         Response response = jaxrsClient
                 .target(BASE_URI_BIRTHDAY)
                 .path("{id}")
                 .resolveTemplate("id", id)
                 .request()
+                .header("Authorization", bearerAuth)
                 .delete();
         if(response.getStatus() == Response.Status.NO_CONTENT.getStatusCode()) {
             success = true;

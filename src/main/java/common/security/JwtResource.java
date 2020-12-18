@@ -45,6 +45,7 @@ curl -i http://localhost:8080/dmit2015-project-backend-start/webapi/jwt/formLogi
 	-d '{"username":"user2015","password":"Password2015"}' \
 	-H 'Content-Type:application/json'
 
+
  curl -i http://localhost:8080/dmit2015-project-backend-start/webapi/jwt/jsonLogin/ \
 	-d '{"username":"admin2015","password":"Password2015"}' \
 	-H 'Content-Type:application/json'
