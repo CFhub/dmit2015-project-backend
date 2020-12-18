@@ -1,0 +1,3 @@
+INSERT INTO Birthday(personName, birthdayDate, gift, whereToGet, price, bought) VALUES ('Isabel', '2021-02-12', 'Dress', 'Ardene', 150.00, true);
+INSERT INTO Birthday(personName, birthdayDate, gift, whereToGet, price, bought) VALUES ('Chris', '2021-10-12', null, null, null, false);
+INSERT INTO Birthday(personName, birthdayDate, gift, whereToGet, price, bought) VALUES ('John', '2021-06-12', 'Watch', 'Swatch', null, false);
